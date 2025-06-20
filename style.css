@@ -1,0 +1,216 @@
+/* === Фон с изображением === */
+body {
+  margin: 0;
+  background: url("https://s3.ru-1.storage.selcloud.ru/production_kodland_main_public/task_description_materials/0dc05014-a8d6-47be-b7d4-3acdaa1e286c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=353dc593148344f49dee011061633995%2F20250620%2Fru-1%2Fs3%2Faws4_request&X-Amz-Date=20250620T081911Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=62218a63cc655ca08e465ace208974050190e101329fe64412cbc7f0cfa1ed68")
+    center center / cover no-repeat fixed;
+  font-family: 'Segoe UI', sans-serif;
+  color: #111;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* === Стеклянный контейнер с блюром === */
+.glass-container {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin: 30px auto;
+  padding: 30px;
+  max-width: 1200px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #111;
+}
+
+/* === Заголовок и логотип === */
+.branding-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 700;
+  color: #111;
+}
+
+/* === Основной интерфейс === */
+#main {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(2, 60px);
+  gap: 10px;
+  padding: 12px;
+  background: #ffffffdd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.panel button,
+.panel input[type=color],
+.panel input[type=number] {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  text-align: center;
+  color: #000;
+}
+
+.panel input[type=number] {
+  font-size: 16px;
+  text-align: center;
+  line-height: 56px;
+  padding: 0;
+}
+
+.panel button.active {
+  background: #d0eaff;
+  border-color: #339af0;
+  color: black;
+}
+
+button.clicked {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+/* === Обёртка под канвас с белым фоном === */
+#canvas-wrapper {
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#canvas-container {
+  position: relative;
+  width: 450px;
+  height: 400px;
+  background-image: linear-gradient(#ccc 1px, transparent 1px),
+    linear-gradient(90deg, #ccc 1px, transparent 1px);
+  background-size: 20px 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+#canvas,
+#onion,
+#cursorCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#onion {
+  z-index: 1;
+}
+#canvas {
+  z-index: 2;
+}
+#cursorCanvas {
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* === FPS и таймлайн === */
+.fps-container {
+  margin-top: 20px;
+  text-align: center;
+  color: #222;
+  font-weight: 500;
+}
+
+#timeline {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumb {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.thumb.active {
+  border-color: blue;
+}
+
+.thumb-number {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  font-size: 10px;
+  background: white;
+  padding: 0 2px;
+}
+
+/* === Футер === */
+footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* === Мобильная адаптация === */
+@media (max-width: 600px) {
+  .panel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #canvas-container {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 1.125;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .logo {
+    width: 40px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .fps-container input[type='range'] {
+    width: 90%;
+  }
+}
