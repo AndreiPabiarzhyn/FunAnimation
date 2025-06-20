@@ -34,8 +34,9 @@ body {
 }
 
 .logo {
-  width: 40%;
-  height: 100%;
+  width: 30%;
+  height: auto;
+  max-width: 120px; /* ограничим чтобы не раздувался на больших экранах */
   object-fit: contain;
   border-radius: 12px;
 }
