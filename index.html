@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funny Animations by Andrei</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+</head>
+<body>
+  <div class="background-animation"></div> <!-- 🎨 красивый анимированный фон -->
+
+  <div class="glass-container"> <!-- 💎 полупрозрачный контейнер -->
+    <header>
+      <div class="branding-horizontal">
+        <img src="https://767416.selcdn.ru/production_kodland_main_public/task_description_materials/44d761e4-6b69-4583-b853-b4ac749c5681.svg" alt="Логотип" class="logo" />
+        <h1>Funny Animations</h1>
+      </div>
+    </header>
+
+    <div id="main">
+      <div class="panel">
+        <button onclick="setTool('brush', this)" title="Кисть">✏️</button>
+        <button onclick="setTool('circle', this)" title="Круг">⚪</button>
+        <button onclick="setTool('square', this)" title="Квадрат">⬛</button>
+        <button onclick="setTool('eraser', this)" title="Ластик">🧽</button>
+        <button onclick="setTool('fill', this)" title="Заливка">🪣</button>
+        <button onclick="undo()" title="Отмена">↩️</button>
+        <input type="color" id="colorPicker" title="Цвет" value="#000000">
+        <input type="number" id="brushSize" title="Размер" value="4" min="1" max="100">
+      </div>
+
+      <div id="canvas-wrapper">
+        <div id="canvas-container">
+          <canvas id="onion" width="450" height="400"></canvas>
+          <canvas id="canvas" width="450" height="400"></canvas>
+          <canvas id="cursorCanvas" width="450" height="400"></canvas>
+        </div>
+      </div>
+
+      <div class="panel">
+        <button onclick="addFrame()" title="Добавить">➕</button>
+        <button onclick="deleteFrame()" title="Удалить">🗑️</button>
+        <button onclick="duplicateFrame()" title="Дублировать">📄</button>
+        <button onclick="clearFrame()" title="Очистить">🧼</button>
+        <button onclick="playAnim()" title="Воспроизвести">▶️</button>
+        <button onclick="stopAnim()" title="Остановить">⏹️</button>
+        <button onclick="exportGIF()" title="Экспорт GIF">📤</button>
+      </div>
+    </div>
+
+    <div class="fps-container">
+      <div>FPS: <span id="fpsValue">12</span></div>
+      <input type="range" min="1" max="24" value="12" id="speed" oninput="updateSpeed(this.value)" style="width:300px">
+    </div>
+
+    <div id="timeline"></div>
+
+    <footer>
+      Created with ❤️ by Andrei Pobiarzhin
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
