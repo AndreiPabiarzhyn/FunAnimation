@@ -1,8 +1,7 @@
 /* === Фон с изображением === */
 body {
   margin: 0;
-  background: url("https://s3.ru-1.storage.selcloud.ru/production_kodland_main_public/task_description_materials/0dc05014-a8d6-47be-b7d4-3acdaa1e286c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=353dc593148344f49dee011061633995%2F20250620%2Fru-1%2Fs3%2Faws4_request&X-Amz-Date=20250620T081911Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=62218a63cc655ca08e465ace208974050190e101329fe64412cbc7f0cfa1ed68")
-    center center / cover no-repeat fixed;
+  background: url("images/bg.png") center center / cover no-repeat fixed;
   font-family: 'Segoe UI', sans-serif;
   color: #111;
   overflow-x: hidden;
