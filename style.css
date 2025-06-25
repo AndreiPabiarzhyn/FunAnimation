@@ -55,9 +55,11 @@ h1 {
 
 /* === Основной интерфейс === */
 #main {
-  max-width: 100%;
-  overflow-x: auto;
+  display: flex;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .panel {
